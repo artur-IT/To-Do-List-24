@@ -1,12 +1,16 @@
-export const Header = () => {
+// import "../src/style.css";
+
+export const Header = ({ onAdd }) => {
   return (
-    <section>
+    <section className="header w-auto flex flex-shrink-0 justify-between items-center px-0 py-5 m-0 rounded-t-xl">
       <div>
-        <h1 className="text-3xl font-bold underline">Do zrobienia</h1>
-        <p>? zadania</p>
+        <h1 className="text-3xl font-bold">Do zrobienia</h1>
+        <h2 className="my-2 text-lg">? zadania</h2>
       </div>
       <div>
-        <button>Plus</button>
+        <button className="w-16 h-16 leading-3 text-4xl font-bold text-white rounded-full bg-blue-500 mr-3" onClick={onAdd}>
+          +
+        </button>
       </div>
     </section>
   );

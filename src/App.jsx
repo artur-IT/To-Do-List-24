@@ -1,15 +1,17 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { Header } from "../components/Header";
 import { NewTask } from "../components/NewTask";
+import { Task } from "../components/Task";
 
 function App() {
-  // const [count, setCount] = useState(0);
+  const [showAddTask, setShowAddTask] = useState(false);
 
   return (
     <>
-      <div className="container mx-auto px-4">
-        <Header />
-        <NewTask />
+      <div className="w-[500px] bg-white mx-auto p-4 rounded-xl my-5">
+        <Header onAdd={() => setShowAddTask(!showAddTask)} />
+        {showAddTask && <NewTask />}
+        <Task taskName="Test" />
       </div>
     </>
   );

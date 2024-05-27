@@ -4,7 +4,7 @@ import { NewTask } from "../components/NewTask";
 import { Task } from "../components/Task";
 
 function App() {
-  const allTasks = ["Zadanie 1", "Zadanie 2", "Zadanie 3"];
+  const allTasks = ["Zadanie 1", "Zadanie 2", "Zadanie 3", "Zadanie 4", "Zadanie 5"];
   const getRandomKey = () => Math.floor(Math.random() * 10000) + 1;
 
   const findAndRemoveTask = (task) => {
@@ -23,8 +23,9 @@ function App() {
     <>
       <div className="w-[500px] bg-white mx-auto p-4 rounded-xl my-5">
         <Header onAdd={() => setShowAddTask(!showAddTask)} count={displayTasks.length} />
-        {showAddTask && <NewTask />}
+        {showAddTask && <NewTask setDisplayTasks={setDisplayTasks} showTasks={showTasks} onAdd={() => setShowAddTask(!showAddTask)} />}
         {displayTasks}
+        {console.log(displayTasks)}
       </div>
     </>
   );

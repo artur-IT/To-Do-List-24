@@ -2,21 +2,24 @@ import { useState } from "react";
 import { Header } from "../components/Header";
 import { NewTask } from "../components/NewTask";
 import { Task } from "../components/Task";
+// import { list } from "postcss";
 
 function App() {
-  const allTasks = ["Zadanie 1", "Zadanie 2", "Zadanie 3", "Zadanie 4", "Zadanie 5"];
-  let tasksComponents = [];
+  let tasksDB = ["Zadanie 1", "Zadanie 2", "Zadanie 3"];
   const getRandomKey = () => Math.floor(Math.random() * 10000) + 1;
 
   const findAndRemoveTask = (task) => {
     setDisplayTasks((prev) => prev.filter((el) => el.props.taskName !== task));
   };
-  const tableOfTasksComponents = () =>
-    (tasksComponents = allTasks.map((task) => <Task taskName={task} key={getRandomKey()} findTask={findAndRemoveTask} />));
-  tableOfTasksComponents();
+
+  const addNewTask = (name) => {
+    setDisplayTasks((prev) => [...prev, <Task taskName={name} key={getRandomKey()} findTask={findAndRemoveTask} />]);
+  };
+
+  const tableOfTasksComponents = () => tasksDB.map((task) => <Task taskName={task} key={getRandomKey()} findTask={findAndRemoveTask} />);
 
   const [showAddTask, setShowAddTask] = useState(false);
-  const [displayTasks, setDisplayTasks] = useState(tasksComponents);
+  const [displayTasks, setDisplayTasks] = useState(tableOfTasksComponents());
 
   return (
     <>
@@ -24,16 +27,12 @@ function App() {
         <Header onAdd={() => setShowAddTask(!showAddTask)} count={displayTasks.length} />
         {showAddTask && (
           <NewTask
-            displayTasks={displayTasks}
-            setDisplayTasks={setDisplayTasks}
-            randomKey={getRandomKey()}
-            tableOfTasksComponents={tableOfTasksComponents}
+            tableOfTasksComponents={() => tableOfTasksComponents()}
             onAdd={() => setShowAddTask(!showAddTask)}
-            findTask={findAndRemoveTask}
+            addNewTask={addNewTask}
           />
         )}
         {displayTasks}
-        {/* {console.log(tasksComponents)} */}
       </div>
     </>
   );

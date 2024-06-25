@@ -1,5 +1,5 @@
 // eslint-disable-next-line react/prop-types
-export const Button = ({ name, isDone, deleteTask, tableOfTasksComponents, addNewTask, onAdd }) => {
+export const Button = ({ name, isDone, deleteTask, addNewTask, onAdd }) => {
   const addButtonHandle = () => {
     onAdd();
     addNewTask();

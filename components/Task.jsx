@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Button } from "./Button";
 
-// eslint-disable-next-line react/prop-types
 export const Task = ({ taskName, findTask }) => {
   const [crossed, setCrossed] = useState(false);
   const [removed, setRemoved] = useState(false);

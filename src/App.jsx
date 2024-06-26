@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Header } from "../components/Header";
 import { NewTask } from "../components/NewTask";
 import { Task } from "../components/Task";
-// import { list } from "postcss";
 
 function App() {
   let tasksDB = ["Zadanie 1", "Zadanie 2", "Zadanie 3"];

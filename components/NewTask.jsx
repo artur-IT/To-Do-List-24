@@ -1,7 +1,6 @@
 import { Button } from "./Button";
 import { useRef } from "react";
 
-// eslint-disable-next-line react/prop-types
 export const NewTask = ({ tableOfTasksComponents, onAdd, addNewTask }) => {
   const newTaskName = useRef(null);
 

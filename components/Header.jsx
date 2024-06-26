@@ -1,4 +1,3 @@
-// eslint-disable-next-line react/prop-types
 export const Header = ({ onAdd, count }) => {
   const tasksInfo = () => {
     if (count === 0) return "";
